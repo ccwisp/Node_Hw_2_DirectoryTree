@@ -1,10 +1,11 @@
-var fs = require('fs'),
-var util = require('util');
-path = require('path');
+// Folder ' Nested Folder First ' is created for test reasons
+
+const fs = require('fs');
+const path = require('path');
 
 function dirTree(filename) {
   // Get the stats to check whether it is a file or folder
-  var stats = fs.lstatSync(filename),
+  const stats = fs.lstatSync(filename),
     info = {
       [path.basename(filename)]: {},
     };
@@ -24,7 +25,10 @@ function dirTree(filename) {
   }
 
   return info;
-}n
+}
 
 console.log('\x1b[35m%s\x1b[0m', 'File Count -->' + ' ' + module.fileCount);
-console.log(util.inspect(dirTree(process.argv[2]), false, null));
+
+console.dir(dirTree(process.argv[2]), {
+  depth: null
+});
