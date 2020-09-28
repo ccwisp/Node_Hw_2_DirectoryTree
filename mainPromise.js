@@ -48,9 +48,7 @@ function readdirTree(rootPath) {
     .then((childPaths) => determineTypes(rootPath, childPaths)) // Filter so we only have paths that are directories.
     .then((children) => {
       return Promise.all(
-        children
-          // We only care about directories.
-          .map((child) => {
+        children.map((child) => {
             if (child.type === 'directory') {
               return readdirTree(rootPath + '/' + child.path) // It's a directory, recurse to the next level down.
                 .then((subTree) => {
