@@ -45,7 +45,7 @@ function determineTypes(parentPath, paths) {
 function readdirTree(rootPath) {
   // Read an entire directory tree, the promise-based recursive version.
   return readdir(rootPath) // Initial non-recursive directory read.
-    .then((childPaths) => determineTypes(rootPath, childPaths)) // Filter so we only have paths that are directories.
+    .then((childPaths) => determineTypes(rootPath, childPaths)) 
     .then((children) => {
       return Promise.all(
         children.map((child) => {
