@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+module.fileCount = 0
 
 function dirTree(filename) {
   // Get the stats to check whether it is a file or folder
